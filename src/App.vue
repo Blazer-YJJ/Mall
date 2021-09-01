@@ -7,12 +7,16 @@
 <script>
 // import axios from "axios";
 // import jsonp from "jsonp";
-
+import storage from "./storage";
 export default {
-  data() {
-    return {};
-  },
-  mounted() {},
+    data() {
+        return {
+
+        };
+    },
+      mounted() {
+
+      }
 };
 </script>
 
