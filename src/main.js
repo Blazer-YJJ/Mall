@@ -3,10 +3,13 @@ import App from './App.vue'
 import axios from "axios";
 import VueAxios from "vue-axios";
 import router from './router';
-// import env from './env';
-
+//mock开关
+const mock = false;
+if (mock){
+	require('./mock/api');
+}
 //根据前端的跨域方式做调整
-// axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = 'https://mobile-ms.uat.homecreditcfc.cn/mock/613085d00aa6f20027717bfa/api';
 //超时设置
 axios.defaults.timeout = 8000;
 //根据环境变量进行获取不同的请求地址
