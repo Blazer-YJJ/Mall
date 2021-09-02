@@ -7,14 +7,19 @@
 <script>
 // import axios from "axios";
 // import jsonp from "jsonp";
-import storage from "./storage";
+// import storage from "./storage";
 export default {
     data() {
         return {
-
+            res:{}
         };
     },
-      mounted() {
+    mounted() {
+        // 1.本地加载请求静态Json文件的形式
+        this.axios.get('/mock/user/login.json').then((res)=>{
+            this.res = res;
+        });
+
 
       }
 };
