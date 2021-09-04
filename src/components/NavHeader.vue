@@ -38,10 +38,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -54,10 +54,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -70,10 +70,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -86,10 +86,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -102,10 +102,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -118,10 +118,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -134,10 +134,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -150,10 +150,10 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" />
+                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
-                                        <div class="pro-price">{{item.prime | currency}}</div>
+                                        <div class="pro-price">{{item.price | currency}}</div>
                                     </a>
                                 </li>
                             </ul>
@@ -206,9 +206,7 @@ export default {
                         categoryId: '100012'
                     }
                 }).then((res)=>{
-                if (res.list.length > 6){
-                    this.phoneList = res.list.slice(0, 6);
-                }
+                    this.phoneList = res.list;
             })
         },
         goToCart(){
@@ -288,12 +286,8 @@ export default {
                     font-size: 16px;
                     line-height: 112px;
                     margin-right: 20px;
-                    .clj{
-                        color: $colorB;
-                    }
-                    span{
-                        cursor:pointer;
-                    }
+                    .clj{color: $colorB;}
+                    span{cursor:pointer;}
                     &:hover{
                         color: $colorA;
                         .children{
@@ -327,9 +321,7 @@ export default {
                                 width: auto;
                                 margin-top: 20px;
                             }
-                            a{
-                                display: inline-block;
-                            }
+                            a{display: inline-block;}
                             .pro-img{
                                 height: 137px;
                             }
@@ -339,9 +331,7 @@ export default {
                                 margin-bottom: 8px;
                                 color: $colorB;
                             }
-                            .pro-price{
-                                color: $colorA;
-                            }
+                            .pro-price{color: $colorA;}
                             &:before{
                                 content: ' ';
                                 position: absolute;
@@ -351,9 +341,7 @@ export default {
                                 height: 100px;
                                 width: 1px;
                             }
-                            &:last-child:before{
-                                display: none;
-                            }
+                            &:last-child:before{display: none;}
                         }
                     }
                 }
