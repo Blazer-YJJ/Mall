@@ -16,7 +16,7 @@
         <div class="copyright">
             <span href="javascript">© mi.com 京ICP证xxxxxx号</span>
             <span href="javascript">京ICP备100xxxxxx号</span>
-            <a href="https://www.ilove996and007.con">https://www.ilove996and007.con</a>
+            <a href="https://www.ilove996and007.com">https://www.ilove996and007.com</a>
             <span href="javascript">京ICP备100xxxxxx号</span>
             <span href="javascript">（京）网械平台备字（2018）第xxxxx号</span>
         </div>
@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../assets/scss/config";
 @import "../assets/scss/base";
 @import "../assets/scss/reset";
@@ -56,18 +56,11 @@ export default {
                 color: $colorD;
                 display: inline-block;
             }
-            span{
-                margin: 0 10px;
-            }
+            span{margin: 0 10px;}
         }
         .copyright{
-            span{
-                margin: 0 5px;
-            }
-
-            a{
-                color: $colorA;
-            }
+            span{margin: 0 5px;}
+            a{color: $colorA;}
         }
     }
 </style>
