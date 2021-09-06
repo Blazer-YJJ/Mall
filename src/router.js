@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './pages/home'
 import Index from './pages/index'
 import Product from './pages/product'
-import Detail from './pages/detail'
+// import Detail from './pages/detail'
 import Cart from './pages/cart'
 import Order from './pages/order'
 import OrderConfirm from './pages/orderConfirm'
@@ -31,11 +31,6 @@ export default new Router({
 					name:'product',
 					component:Product
 				},
-				{
-					path:'/detail/:id',
-					name:'detail',
-					component:Detail
-				}
 			]
 		},
 		{
