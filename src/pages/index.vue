@@ -151,12 +151,20 @@
                     <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
             </div>
-            <!-- 广告位 -->
-            <div class="ads-box"></div>
-            <div class="banner"></div>
-            <!-- 商品列表 -->
-            <div class="product-box"></div>
         </div>
+        <!-- 广告位 -->
+        <div class="ads-box">
+            <a v-bind:href="'/#/product/' + item.id" v-for="(item,index) in adsList" v-bind:key="index">
+                <img v-bind:src="item.img" alt="">
+            </a>
+        </div>
+        <div class="banner">
+            <a href="/#/product/30">
+                <img src="./../../public/imgs/banner-1.png"/>
+            </a>
+        </div>
+        <!-- 商品列表 -->
+        <div class="product-box"></div>
         <service-bar></service-bar>
     </div>
 </template>
@@ -240,7 +248,7 @@
                             name:'Redmi k40'
                         },
                         {
-                            id:'33',
+                            id:'',
                             img:'/imgs/item-box-2.png',
                             name:'小米10'
                         }
@@ -250,6 +258,25 @@
                     [0,0,0,0],
                     [0,0,0,0],
                     [0,0,0,0]
+                ],
+                //广告位
+                adsList:[
+                    {
+                        id:'33',
+                        img:'/imgs/ads/ads-1.png',
+                    },
+                    {
+                        id:'48',
+                        img:'/imgs/ads/ads-2.jpg',
+                    },
+                    {
+                        id:'45',
+                        img:'/imgs/ads/ads-3.png',
+                    },
+                    {
+                        id:'47',
+                        img:'/imgs/ads/ads-4.jpg',
+                    }
                 ]
             }
         }
@@ -259,6 +286,8 @@
     @import "../assets/scss/config";
     @import "../assets/scss/mixin";
     .index{
+        width: 1226px;
+        margin: 0 auto;
         .container{
             .nav-menu{
                 position: absolute;
@@ -349,6 +378,17 @@
                 }
 
             }
+        }
+        .ads-box{
+            @include flex();
+            a{
+                width: 24%;
+                height: 160px;
+                margin: 13px 0 30px 0;
+            }
+        }
+        .banner{
+            margin-bottom: 50px;
         }
     }
 </style>
