@@ -3,6 +3,8 @@ import App from './App.vue'
 import axios from "axios";
 import VueAxios from "vue-axios";
 import router from './router';
+//图片懒加载
+import VueLazyload from "vue-lazyload";
 //mock开关
 const mock = true;
 if (mock){
@@ -28,7 +30,11 @@ axios.interceptors.response.use(function (response){
 	}
 });
 
-Vue.use(VueAxios,axios)
+Vue.use(VueAxios,axios);
+//图片懒加载
+Vue.use(VueLazyload,{
+	loading: '/imgs/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false
 
 new Vue({

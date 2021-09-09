@@ -38,7 +38,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -54,7 +54,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -70,7 +70,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -86,7 +86,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -102,7 +102,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -118,7 +118,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -134,7 +134,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>
@@ -150,7 +150,7 @@
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
                                     <a v-bind:href="'/#/product' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-bind:src="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{item.name}}</div>
                                         <div class="pro-price">{{item.price | currency}}</div>

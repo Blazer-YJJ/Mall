@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <div class="foot-logo">
-            <img src="./../../public/imgs/logo-footer.png" alt="">
+            <img v-lazy="'/imgs/logo-footer.png'" alt="">
             <p>杨继钧的小米商城</p>
         </div>
         <div class="foot-link">
