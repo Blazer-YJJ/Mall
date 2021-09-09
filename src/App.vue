@@ -32,6 +32,9 @@ export default {
 };
 </script>
 
-<style>
-    @import "./assets/scss/reset.scss";
+<style lang="scss">
+    @import "assets/scss/config";
+    @import "assets/scss/base";
+    @import "assets/scss/button";
+    @import "assets/scss/reset";
 </style>
