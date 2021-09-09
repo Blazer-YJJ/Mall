@@ -152,17 +152,17 @@
                     <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
             </div>
-            <!-- 广告位 -->
-            <div class="ads-box">
-                <a v-bind:href="'/#/product/' + item.id" v-for="(item,index) in adsList" v-bind:key="index">
-                    <img v-bind:src="item.img" alt="">
-                </a>
-            </div>
-            <div class="banner">
-                <a href="/#/product/30">
-                    <img src="./../../public/imgs/banner-1.png"/>
-                </a>
-            </div>
+        </div>
+        <!-- 广告位 -->
+        <div class="ads-box">
+            <a v-bind:href="'/#/product/' + item.id" v-for="(item,index) in adsList" v-bind:key="index">
+                <img v-bind:src="item.img" alt="">
+            </a>
+        </div>
+        <div class="banner">
+            <a href="/#/product/30">
+                <img src="./../../public/imgs/banner-1.png"/>
+            </a>
         </div>
         <!-- 商品列表 -->
         <div class="product-box">
@@ -459,15 +459,18 @@ export default {
             }
         }
         .ads-box{
+            width: 1226px;
+            margin: 0 auto;
             @include flex();
             a{
                 width: 24%;
                 height: 160px;
-                margin: 13px 0 30px 0;
+                margin: 45px 0 30px 0;
             }
         }
         .banner{
-            margin-bottom: 50px;
+            width: 1226px;
+            margin: 0 auto;
         }
         .product-box {
             background-color: $colorJ;
