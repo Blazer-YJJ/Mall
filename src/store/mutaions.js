@@ -1,0 +1,4 @@
+//Vuex-mutaions
+export default{
+
+}

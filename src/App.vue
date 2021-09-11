@@ -1,35 +1,35 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-// import axios from "axios";
-// import jsonp from "jsonp";
-// import storage from "./storage";
-export default {
-    data() {
-        return {
-            res:{}
-        };
-    },
-    mounted() {
-        // 1.本地加载请求静态Json文件的形式
-        /* this.axios.get('/mock/user/login.json').then((res)=>{
-            this.res = res;
-        });*/
-        // 2.通过easy-mock平台实现数据mock
-        /* this.axios.get('/user/login').then((res)=>{
-             this.res = res;
-         });*/
-         // 3.本地集成mockjs实现数据mock
-        this.axios.get('/user/login').then((res)=>{
-            this.res = res;
-        });
+    export default {
+        data() {
+            return {
+                res:{}
+            };
+        },
+        mounted() {
+            this.getUser();
+            this.getCartCount();
+        },
+        methods: {
+            //用户信息
+            getUser(){
+                this.axios.get('/user').then(() => {
+                    //to-do  存储到Vuex
+                })
+            },
+            //购物车商品数量
+            getCartCount(){
+                this.axios.get('carts/products/sum').then(() => {
 
-      }
-};
+                })
+            }
+        }
+    };
 </script>
 
 <style lang="scss">

@@ -17,7 +17,7 @@
                     <a href="">Select &nbsp; Location</a>
                 </div>
                 <div class="topbar-user">
-                    <a href="" v-if="username" v-on:click="login">登录</a>
+                    <a href="/#/login/" v-if="username" v-on:click="login">登录</a>
                     <a href="" v-if="!username">{{username}}</a>
                     <a href="" v-if="username">我的订单</a>
                     <a href="">消息通知</a>
