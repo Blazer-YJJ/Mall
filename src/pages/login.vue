@@ -50,36 +50,38 @@
     </div>
 </template>
 <script>
-    export default{
-        name:'login',
+import { mapActions } from 'vuex';
+    export default {
+        name: 'login',
         data(){
-            return{
-                username:'',        // eslint-disable-line no-unused-vars
-                password:'',        // eslint-disable-line no-unused-vars
-                userId:'',          // eslint-disable-line no-unused-vars
+            return {
+                username:'',
+                password:'',
+                userId:''
             }
         },
         methods:{
-            login() {
-                let {username, password} = this;
-                this.axios.post('user/login',{
-                    username,   //用户名
-                    password    //登陆密码
-                }).then((res) => {
-                    this.$cookie.set('userId', res.id, {expires: '1M'});
-                    //登陆完成后回到首页面  to-do 保存用户信息
+            login(){
+                let { username,password } = this;
+                this.axios.post('/user/login',{
+                    username,
+                    password
+                }).then((res)=>{
+                    this.$cookie.set('userId',res.id,{expires:'1M'});
+                    // this.$store.dispatch('saveUserName',res.username);
+                    this.saveUserName(res.username);
                     this.$router.push('/index');
-                });
+                })
             },
-            //账户注册
+            ...mapActions(['saveUserName']),
             register(){
-                this.axios.post('user/register',{
-                    username: 'BlazerYjj',    //用户名
-                    password: 'admin',    //登陆密码
-                    email: 'yangjijunA@gmail.com'
-                }).then(() => {
-                    alert('恭喜您，注册成功！')
-                });
+                this.axios.post('/user/register',{
+                    username:'yangjijun',
+                    password:'admin',
+                    email:'yangjijunAbc@gmail.com'
+                }).then(()=>{
+                    alert('注册成功');
+                })
             }
         }
     }

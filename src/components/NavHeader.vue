@@ -3,25 +3,26 @@
         <div class="nav-topbar">
             <div class="container">
                 <div class="topbar-menu">
-                    <a href="">小米商城</a>
-                    <a href="">MIUI</a>
-                    <a href="">云服务</a>
-                    <a href="">天星科技</a>
-                    <a href="">有品</a>
-                    <a href="">小爱开放平台</a>
-                    <a href="">企业团购</a>
-                    <a href="">资质证照</a>
-                    <a href="">协议规则</a>
-                    <a href="">下载app</a>
-                    <a href="">智能生活</a>
-                    <a href="">Select &nbsp; Location</a>
+                    <a href="javascript:;">小米商城</a>
+                    <a href="javascript:;">MIUI</a>
+                    <a href="javascript:;">云服务</a>
+                    <a href="javascript:;">天星科技</a>
+                    <a href="javascript:;">有品</a>
+                    <a href="javascript:;">小爱开放平台</a>
+                    <a href="javascript:;">企业团购</a>
+                    <a href="javascript:;">资质证照</a>
+                    <a href="javascript:;">协议规则</a>
+                    <a href="javascript:;">下载app</a>
+                    <a href="javascript:;">智能生活</a>
+                    <a href="javascript:;">Select &nbsp; Location</a>
                 </div>
                 <div class="topbar-user">
-                    <a href="/#/login/" v-if="username" v-on:click="login">登录</a>
-                    <a href="" v-if="!username">{{username}}</a>
-                    <a href="" v-if="username">我的订单</a>
-                    <a href="">消息通知</a>
-                    <a href="" class="my-cart" v-on:click="goToCart"><span class="icon-cart"></span>购物车</a>
+                    <a href="javascript:;" v-if="username">欢迎您：{{username}}</a>
+                    <a href="javascript:;" v-if="!username" @click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
+                    <a href="javascript:;" v-if="username">我的订单</a>
+                    <a href="javascript:;" class="my-cart" @click="goToCart" v-if="username">
+                        <span class="icon-cart"></span>购物车({{cartCount}})
+                    </a>
                 </div>
             </div>
         </div>
@@ -178,13 +179,22 @@
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
     name: "NavHeader",
     data(){
         return{
-            username:'jack',
             phoneList:[]
         }
+    },
+    computed:{
+    /*    username(){
+            return this.$store.state.username;
+        },
+        cartCount(){
+            return this.$store.state.cartCount;
+        }*/
+        ...mapState(["username","cartCount"])
     },
     //过滤器
     filters:{
@@ -233,16 +243,31 @@ export default {
                 display: inline-block;
                 color: #b0b0b0;
                 margin-right: 17px;
+
+                &:hover{
+                    color: $colorA;
+                }
             }
             .my-cart{
                 margin-right: 0px;
                 width: 110px;
-                background-color: $colorA;
+                background-color: $colorH;
                 text-align: center;
-                color: $colorG;
+                color: $colorA;
+                font-size: 14px;
+                font-weight: bolder;
+                
                 .icon-cart{
-                    @include bgImg(16px,12px,'./../../public/imgs/icon-cart-checked.png');
+                    @include bgImg(18px,16px,'./../../public/imgs/icon-cart.png');
                     margin-right: 4px;
+                }
+                &:hover{
+                    background-color: $colorA;
+                    color: $colorG;
+
+                    .icon-cart{
+                        @include bgImg(18px,16px,'./../../public/imgs/icon-cart-hover.png');
+                    }
                 }
             }
         }

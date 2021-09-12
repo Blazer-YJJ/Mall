@@ -5,31 +5,35 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                res:{}
-            };
-        },
-        mounted() {
-            this.getUser();
-            this.getCartCount();
-        },
-        methods: {
-            //用户信息
-            getUser(){
-                this.axios.get('/user').then(() => {
-                    //to-do  存储到Vuex
-                })
-            },
-            //购物车商品数量
-            getCartCount(){
-                this.axios.get('carts/products/sum').then(() => {
+export default {
+    name: 'app',
+    components: {
 
-                })
-            }
+    },
+    data(){
+        return {
+
         }
-    };
+    },
+    mounted(){
+        this.getUser();
+        this.getCartCount();
+    },
+    methods:{
+        // 获取用户信息
+        getUser(){
+            this.axios.get('/user').then((res)=>{
+                this.$store.dispatch('saveUserName',res.username);
+            })
+        },
+        // 获取商品数量
+        getCartCount(){
+            this.axios.get('/carts/products/sum').then((res)=>{
+                this.$store.dispatch('saveCartCount',res);
+            })
+        }
+    }
+}
 </script>
 
 <style lang="scss">

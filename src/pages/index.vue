@@ -181,7 +181,7 @@
                                 <div class="item-info">
                                     <h3>{{item.name}}</h3>
                                     <p>{{item.subtitle}}</p>
-                                    <p class="price" v-on:click="addCart(item.id)">{{item.price}}元</p>
+                                    <p class="price" @click="addCart(item.id)">{{item.price}}元</p>
                                 </div>
                             </div>
                         </div>
@@ -191,23 +191,20 @@
         </div>
         <service-bar></service-bar>
         <modal
-            title="温馨提示："
-            sure-text="查看购物车"
-            btn-type="1"
-            modal-type="middle"
+            title="提示"
+            sureText="查看购物车"
+            btnType="1"
+            modalType="middle"
             v-bind:showModal="showModal"
             v-on:submit="goToCart"
-            v-on:cancel="showModal=false">
-            <template v-slot:body><p>您心怡的商品添加购物车成功！~</p></template>
+            v-on:cancel="showModal=false"
+        >
+            <template v-slot:body>
+                <p>商品添加成功！</p>
+            </template>
         </modal>
     </div>
 </template>
-<script>
-import Modal from "../components/Modal";
-export default {
-    components: {Modal}
-}
-</script>
 <script>
     import ServiceBar from "../components/ServiceBar"
     import Modal from "../components/Modal";
@@ -333,8 +330,8 @@ export default {
             init(){
                 this.axios.get('/products',{
                     params:{
-                        categoryId:100012,
-                        pageSize:14
+                        categoryId: 100012,
+                        pageSize: 14
                     }
                 }).then((res)=>{
                     res.list = res.list.slice(6,14);
@@ -546,7 +543,7 @@ export default {
                                     cursor: pointer;
 
                                     &:after {
-                                        @include bgImg(22px, 22px, '/imgs/icon-cart-hover.png');
+                                        @include bgImg(22px, 22px, '/imgs/icon-cart.png');
                                         content: ' ';
                                         margin-left: 5px;
                                         vertical-align: middle;

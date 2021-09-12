@@ -1,11 +1,11 @@
 import Vue from "vue";
-import store from "./store";
-import App from "./App.vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import router from "./router";                           //图片懒加载
 import VueLazyload from "vue-lazyload";
 import VueCookie from "vue-cookie";
+import store from "./store";
+import App from "./App.vue";
 
 //mock开关
 const mock = false;
@@ -22,7 +22,7 @@ axios.defaults.timeout = 8000;
 axios.interceptors.response.use(function (response){
 	//获取返回值
 	let res = response.data;
-	let path = location.hash;           //获取路径 
+	let path = location.hash;           //获取路径
 	if (res.status == 0){
 		return res.data;
 	} else if (res.status == 10){
@@ -35,7 +35,7 @@ axios.interceptors.response.use(function (response){
 	}
 });
 
-Vue.use(VueAxios,axios);
+Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
 //图片懒加载
 Vue.use(VueLazyload,{
