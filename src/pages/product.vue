@@ -54,7 +54,7 @@
                 swiperOption:{
                     autoplay:true,
                     slidesPerView: 3,
-                    spaceBetween: 30,
+                    spaceBetween: 5,
                     freeMode: true,
                     pagination: {
                         el: '.swiper-pagination',
@@ -163,7 +163,7 @@
             }
             .item-swiper{
 
-                margin: 36px auto 36px;
+                margin: 36px auto 0;
                 img{
                     width: 100%;
                 }

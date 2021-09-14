@@ -16,8 +16,6 @@ if (mock){
 axios.defaults.baseURL = '/api';
 //超时设置
 axios.defaults.timeout = 8000;
-//根据环境变量进行获取不同的请求地址
-// axios.defaults.baseURL = env.baseURL;
 //错误拦截
 axios.interceptors.response.use(function (response){
 	//获取返回值
@@ -29,6 +27,7 @@ axios.interceptors.response.use(function (response){
 		if (path != '#/index'){
 			window.location.href = '/#/login';
 		}
+		return Promise.reject(res);
 	} else {
 		alert(res.msg);
 		return Promise.reject(res);         //抛出异常
