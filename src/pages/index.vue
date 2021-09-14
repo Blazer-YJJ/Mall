@@ -256,15 +256,15 @@
                         img:'/imgs/slider/slide-2.jpg'
                     },
                     {
-                        id:'45',
+                        id:'46',
                         img:'/imgs/slider/slide-3.png'
                     },
                     {
-                        id:'',
+                        id:'47',
                         img:'/imgs/slider/slide-4.jpg'
                     },
                     {
-                        id:'',
+                        id:'48',
                         img:'/imgs/slider/slide-5.jpg'
                     }
                 ],
@@ -287,7 +287,7 @@
                             name:'Redmi k40'
                         },
                         {
-                            id:'',
+                            id:'33',
                             img:'/imgs/item-box-2.png',
                             name:'小米10'
                         }
@@ -452,7 +452,6 @@
                         height: 100%;
                     }
                 }
-
             }
         }
         .ads-box{

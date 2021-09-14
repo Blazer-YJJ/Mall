@@ -2,13 +2,14 @@
     <div class="nav-bar" v-bind:class="{'is_fixed':isFixed}">
         <div class="container">
             <div class="pro-title">
-                xiaomi&nbsp;&nbsp;MIX4
+                <!-- xiaomi&nbsp;&nbsp;MIX4-->
+                {{title}}
             </div>
             <div class="pro-param">
                 <a href="javascript:;">概述</a><span>|</span>
                 <a href="javascript:;">参数配置</a><span>|</span>
                 <a href="javascript:;">用户评价</a>
-                <slot name="bye"></slot>
+                <slot name="buy"></slot>
             </div>
         </div>
     </div>
@@ -17,6 +18,9 @@
 <script>
 export default {
     name: "ProductParam",
+    props:{
+        title:String
+    },
     data(){
         return{
             isFixed: false
@@ -47,6 +51,7 @@ export default {
         line-height: 70px;
         border-top: 1px solid $colorH;
         background-color: $colorG;
+        z-index: 15;
 
         &.is_fixed{
             position: fixed;

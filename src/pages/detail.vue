@@ -1,5 +1,5 @@
 <template>
-    <service-bar></service-bar>
+    <service-bar>dedail</service-bar>
 </template>
 <script>
 
