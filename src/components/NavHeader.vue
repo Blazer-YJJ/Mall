@@ -18,9 +18,9 @@
                 </div>
                 <div class="topbar-user">
                     <a href="javascript:;" v-if="username">欢迎您：{{username}}</a>
-                    <a href="javascript:;" v-if="!username" @click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
+                    <a href="javascript:;" v-if="!username" v-on:click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
                     <a href="javascript:;" v-if="username">我的订单</a>
-                    <a href="javascript:;" class="my-cart" @click="goToCart" v-if="username">
+                    <a href="javascript:;" class="my-cart" v-on:click="goToCart" v-if="username">
                         <span class="icon-cart"></span>购物车({{cartCount}})
                     </a>
                 </div>
@@ -277,31 +277,7 @@ export default {
         .container {
             height: 112px;
             @include flex();
-            .header-logo{
-                //@include bgImg(55px,55px);
-                display: inline-block;
-                width: 55px;
-                height: 55px;
-                background: $colorA;
-                a{
-                    display: inline-block;
-                    width: 110px;
-                    height: 55px;
-                    &:before{
-                        content: ' ';
-                        @include bgImg(55px,55px,'./../../public/imgs/mi-logo.png',55px);
-                        transition: margin .5s;
-                    }
-                    &:after{
-                        content: ' ';
-                        @include bgImg(55px,55px,'./../../public/imgs/mi-home.png',55px);
-                    }
-                    &:hover:before{
-                        margin-left: -60px;
-                        transition: margin .5s;
-                    }
-                }
-            }
+
             .header-menu{
                 display: inline-block;
                 .item-menu{

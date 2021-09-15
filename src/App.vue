@@ -28,8 +28,8 @@ export default {
         },
         // 获取商品数量
         getCartCount(){
-            this.axios.get('/carts/products/sum').then((res)=>{
-                this.$store.dispatch('saveCartCount',res);
+            this.axios.get('/carts/products/sum').then((res=0)=>{
+                this.$store.dispatch('saveCartCount',res)
             })
         }
     }
