@@ -19,6 +19,7 @@
                 <div class="topbar-user">
                     <a href="javascript:;" v-if="username">欢迎您：{{username}}</a>
                     <a href="javascript:;" v-if="!username" v-on:click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
+                    <a href="javascript:;" v-if="username" v-on:click="logout">退出</a>
                     <a href="javascript:;" v-if="username">我的订单</a>
                     <a href="javascript:;" class="my-cart" v-on:click="goToCart" v-if="username">
                         <span class="icon-cart"></span>购物车({{cartCount}})
@@ -204,19 +205,36 @@ export default {
         }
     },
     mounted() {
-        this.getProductList()
+        this.getProductList();
+        let params = this.$route.parmas;
+        if (params && params.from == 'login'){
+            this.getCartCount();
+        }
     },
     methods:{
         login(){
             this.$router.push('/login');
         },
         getProductList(){
-                this.axios.get('/products',{
-                    params:{
-                        categoryId: '100012'
-                    }
-                }).then((res)=>{
-                    this.phoneList = res.list;
+            this.axios.get('/products',{
+                params:{
+                    categoryId: '100012'
+                }
+            }).then((res)=>{
+                this.phoneList = res.list;
+            })
+        },
+        getCartCount(){
+            this.axios.get('/carts/products/sum').then((res = 0) => {
+                this.$store.dispatch('saveCartCount',res);
+            });
+        },
+        logout(){
+            this.axios.post('/user/logout').then(() => {
+                this.$message.success('账号已成功退出！');
+                this.$cookie.set('userId','',{expires: '-1'});
+                this.$store.dispatch('saveUserName','');
+                this.$store.dispatch('saveCartCount','0');
             })
         },
         goToCart(){

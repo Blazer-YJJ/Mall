@@ -67,10 +67,18 @@ import { mapActions } from 'vuex';
                     username,
                     password
                 }).then((res)=>{
-                    this.$cookie.set('userId',res.id,{expires:'1M'});
+                    this.$cookie.set('userId',res.id,{expires:'Session'});
                     // this.$store.dispatch('saveUserName',res.username);
                     this.saveUserName(res.username);
-                    this.$router.push('/index');
+                    this.$router.push({
+                        // 明文传参
+                        // path: '/index',
+                        // query: {
+                        //     from: 'login'
+                        // }
+                        name: 'index',
+                        params: 'login'
+                    });
                 })
             },
             ...mapActions(['saveUserName']),
