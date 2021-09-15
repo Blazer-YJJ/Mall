@@ -61,98 +61,101 @@
     </div>
 </template>
 <script>
-import OrderHeader from './../components/OrderHeader'
-import ServiceBar from './../components/ServiceBar'
-import NavFooter from './../components/NavFooter'
-export default{
-    name:'index',
-    components:{
-        OrderHeader,
-        ServiceBar,
-        NavFooter
-    },
-    data(){
-        return {
-            list: [],                             //商品列表
-            allChecked: false,                  //是否将商品全选
-            cartTotalPrice: 0,                  //所选商品总金额
-            checkedNum: 0                       //所选商品数量
-        }
-    },
-    mounted(){
-        this.getCartList();
-    },
-    methods:{
-        //购物车列表
-        getCartList(){
-            this.axios.get('/carts').then((res) => {
-                this.renderData(res);
-            })
+    import OrderHeader from './../components/OrderHeader';
+    import ServiceBar from './../components/ServiceBar';
+    import NavFooter from './../components/NavFooter';
+    import 'element-ui/lib/theme-chalk/index.css';
+
+    export default{
+        name:'index',
+        components:{
+            OrderHeader,
+            ServiceBar,
+            NavFooter
         },
-
-        //购物车全选功能控制
-        toggleAll(){
-            let url = this.allChecked ? '/carts/unSelectAll' :  '/carts/selectAll';
-            this.axios.put(url).then((res) => {
-                //重新渲染购物车
-                this.renderData(res);
-            })
-        },
-
-        //购物车商品内容更新（商品增加/减少、商品单选）
-        updateCart(item, type){
-            let quantity = item.quantity;                   //商品
-            let selected = item.productSelected;            //库存
-
-            if (type == '-'){
-                if (quantity == 1){
-                    alert('商品至少保留一件');
-                    return;
-                }
-                --quantity;
-            } else if (type == '+'){
-                if (quantity > item.productStock){
-                    alert('心仪的商品库存不足')
-                    return;
-                }
-                ++quantity;
-            } else{
-                selected = !item.productSelected;
-            }
-            this.axios.put(`/carts/${item.productId}`,{
-                quantity,
-                selected
-            }).then((res) => {
-                this.renderData(res);
-            })
-        },
-
-        //购物车商品删除
-        delProduct(item){
-            this.axios.delete(`/carts/${item.productId}`).then((res) => {
-                this.renderData(res);
-            })
-        },
-
-        //购物车商品下单
-        order(){
-            let isCheck = this.list.every(item => !item.productSelected);               //判断商品勾选是否为空 !item.productSelected:不是全选
-            if (isCheck){
-                alert('请选择至少一件商品再下单！');
-            } else {
-                this.$router.push('/order/confirm');
+        data(){
+            return {
+                list: [],                             //商品列表
+                allChecked: false,                  //是否将商品全选
+                cartTotalPrice: 0,                  //所选商品总金额
+                checkedNum: 0                       //所选商品数量
             }
         },
+        mounted(){
+            this.getCartList();
+        },
+        methods:{
+            //购物车列表
+            getCartList(){
+                this.axios.get('/carts').then((res) => {
+                    this.renderData(res);
+                })
+            },
 
-        //公共购物车商品信息
-        renderData(res){
-            this.list = res.cartProductVoList || [];                                    //购物车商品列表
-            this.allChecked = res.selectedAll;                                          //购物车全选
-            this.cartTotalPrice = res.cartTotalPrice;                                   //购物车总金额
-            this.checkedNum = this.list.filter(item => item.productSelected).length;    //购物车总数量
+            //购物车全选功能控制
+            toggleAll(){
+                let url = this.allChecked ? '/carts/unSelectAll' :  '/carts/selectAll';
+                this.axios.put(url).then((res) => {
+                    //重新渲染购物车
+                    this.renderData(res);
+                })
+            },
+
+            //购物车商品内容更新（商品增加/减少、商品单选）
+            updateCart(item, type){
+                let quantity = item.quantity;                   //商品
+                let selected = item.productSelected;            //库存
+
+                if (type == '-'){
+                    if (quantity == 1){
+                        this.$message.error('商品至少保留一件');
+                        return;
+                    }
+                    --quantity;
+                } else if (type == '+'){
+                    if (quantity > item.productStock){
+                        this.$message.warning('心仪的商品库存不足');
+                        return;
+                    }
+                    ++quantity;
+                } else{
+                    selected = !item.productSelected;
+                }
+                this.axios.put(`/carts/${item.productId}`,{
+                    quantity,
+                    selected
+                }).then((res) => {
+                    this.renderData(res);
+                })
+            },
+
+            //购物车商品删除
+            delProduct(item){
+                this.axios.delete(`/carts/${item.productId}`).then((res) => {
+                    this.renderData(res);
+                    this.$message.success('商品删除成功！');
+                })
+            },
+
+            //购物车商品下单
+            order(){
+                let isCheck = this.list.every(item => !item.productSelected);               //判断商品勾选是否为空 !item.productSelected:不是全选
+                if (isCheck){
+                    this.$message.warning('请选择至少一件商品再下单！');
+                } else {
+                    this.$router.push('/order/confirm');
+                }
+            },
+
+            //公共购物车商品信息
+            renderData(res){
+                this.list = res.cartProductVoList || [];                                    //购物车商品列表
+                this.allChecked = res.selectedAll;                                          //购物车全选
+                this.cartTotalPrice = res.cartTotalPrice;                                   //购物车总金额
+                this.checkedNum = this.list.filter(item => item.productSelected).length;    //购物车总数量
+            }
         }
     }
-}
 </script>
 <style lang="scss">
 .cart{

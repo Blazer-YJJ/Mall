@@ -36,10 +36,12 @@
             line-height: 55px;
         }
         .title{
-            font-size: $fontF;
-            color: $colorB;
             margin-left: -400px;
 
+            h2{
+                font-size: $fontF;
+                color: $colorB;
+            }
             span{
                 font-size: $fontJ;
                 color: $colorD;

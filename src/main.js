@@ -5,6 +5,8 @@ import router from "./router";                           //图片懒加载
 import VueLazyload from "vue-lazyload";
 import VueCookie from "vue-cookie";
 import store from "./store";
+import {Message} from "element-ui";
+import 'element-ui/lib/theme-chalk/index.css';
 import App from "./App.vue";
 
 //mock开关
@@ -29,17 +31,19 @@ axios.interceptors.response.use(function (response){
 		}
 		return Promise.reject(res);
 	} else {
-		alert(res.msg);
+		this.$message.warning(res.msg);
 		return Promise.reject(res);         //抛出异常
 	}
 });
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
+Vue.use(Message.success('页面刷新成功！'));
 //图片懒加载
 Vue.use(VueLazyload,{
 	loading: '/imgs/loading-svg/loading-bars.svg'
-})
+});
+Vue.prototype.$message = Message;
 Vue.config.productionTip = false
 
 new Vue({
