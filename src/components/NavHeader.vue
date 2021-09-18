@@ -298,6 +298,7 @@ export default {
 
             .header-menu{
                 display: inline-block;
+
                 .item-menu{
                     display: inline-block;
                     color: $colorB;
@@ -307,6 +308,7 @@ export default {
                     margin-right: 20px;
                     .clj{color: $colorB;}
                     span{cursor:pointer;}
+
                     &:hover{
                         color: $colorA;
                         .children{
@@ -328,6 +330,7 @@ export default {
                         background: $colorG;
                         border-top: 1px solid $colorH;
                         box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
+
                         .product{
                             position: relative;
                             float: left;
@@ -335,6 +338,7 @@ export default {
                             font-size: 12px;
                             line-height: 12px;
                             text-align: center;
+
                             img{
                                 height: 111px;
                                 width: auto;

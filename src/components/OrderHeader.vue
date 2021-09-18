@@ -36,7 +36,6 @@
             line-height: 55px;
         }
         .title{
-            margin-left: -400px;
 
             h2{
                 font-size: $fontF;
