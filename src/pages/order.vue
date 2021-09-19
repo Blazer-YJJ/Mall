@@ -42,7 +42,10 @@
                 this.tip = '请认真查看您的商品以及数量是否选购正确'
             } else if (path == '/order/pay'){
                 this.title = '支付确认';
-                this.tip = '请您在三十分钟内进行付款，逾期则自动取消订单'
+                this.tip = '请您在三十分钟内进行付款，超时则自动取消订单'
+            } else {
+                this.title = '支付确认';
+                this.tip = '请您在三十分钟内进行付款，超时则自动取消订单'
             }
         }
     }

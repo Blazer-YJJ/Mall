@@ -34,11 +34,14 @@ axios.interceptors.response.use(function (response){
 		this.$message.warning(res.msg);
 		return Promise.reject(res);         //抛出异常
 	}
+},(error) => {
+	let res = error.response;
+	Message.error(res.data.message);
+	return Promise.reject(error);
 });
 
 Vue.use(VueAxios, axios);
 Vue.use(VueCookie);
-Vue.use(Message.success('页面刷新成功！'));
 //图片懒加载
 Vue.use(VueLazyload,{
 	loading: '/imgs/loading-svg/loading-bars.svg'
