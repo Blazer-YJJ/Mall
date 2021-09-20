@@ -1,5 +1,10 @@
 <template>
     <div class="order-pay">
+        <order-header title="订单支付">
+            <template v-slot:tip>
+                <span>请查看所选是否正确，并选择支付类型</span>
+            </template>
+        </order-header>
         <div class="wrapper">
             <div class="container">
                 <div class="order-wrap">
@@ -67,6 +72,7 @@
     </div>
 </template>
 <script>
+    import OrderHeader from "../components/OrderHeader";
     import QRCode from 'qrcode';
     import ScanPayCode from "../components/ScanPayCode";
     import Modal from "../components/Modal";
@@ -83,10 +89,12 @@
                 payImg: '',                                 //微信支付收款地址
                 showPayModal: false,                        //二次支付确认弹框
                 totalMoney: 0,                              //商品应付金额
-                T:''                                        //定时器ID
+                T:'',                                       //定时器ID
+                payment: 0                                  //订单总金额
             }
         },
         components:{
+            OrderHeader,
             ScanPayCode,
             Modal
         },

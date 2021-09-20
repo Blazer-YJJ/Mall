@@ -31,7 +31,7 @@ axios.interceptors.response.use(function (response){
 		}
 		return Promise.reject(res);
 	} else {
-		this.$message.warning(res.msg);
+		Message.warning(res.msg);
 		return Promise.reject(res);         //抛出异常
 	}
 },(error) => {

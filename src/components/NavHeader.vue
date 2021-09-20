@@ -20,7 +20,7 @@
                     <a href="javascript:;" v-if="username">欢迎您：{{username}}</a>
                     <a href="javascript:;" v-if="!username" v-on:click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
                     <a href="javascript:;" v-if="username" v-on:click="logout">退出</a>
-                    <a href="javascript:;" v-if="username">我的订单</a>
+                    <a href="/#/order/list" v-if="username">我的订单</a>
                     <a href="javascript:;" class="my-cart" v-on:click="goToCart" v-if="username">
                         <span class="icon-cart"></span>购物车({{cartCount}})
                     </a>
