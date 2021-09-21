@@ -1,16 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './pages/login'
-import Home from './pages/home'
-import Index from './pages/index'
-import Product from './pages/product'
-import Detail from './pages/detail'
-import Cart from './pages/cart'
-import Order from './pages/order'
-import OrderConfirm from './pages/orderConfirm'
-import OrderList from './pages/orderList'
-import OrderPay from './pages/orderPay'
-import AliPay from './pages/aliPay'
 
 Vue.use(Router);
 
@@ -19,60 +8,60 @@ export default new Router({
 		{
 			path:'/',
 			name:'home',
-			component:Home,
+			component: () => import('./pages/home'),
 			redirect:'/index',
 			children:[
 				{
 					path:'/index',
 					name:'index',
-					component:Index
+					component: () => import('./pages/index')
 				},
 				{
 					path:'/product/:id',
 					name:'product',
-					component:Product
+					component: () => import('./pages/product')
 				},
 				{
 					path:'/detail/:id',
 					name:'detail',
-					component:Detail
+					component: () => import('./pages/detail')
 				},
 			]
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: Login
+			component: () => import('./pages/login')
 		},
 		{
 			path: '/cart',
 			name: 'cart',
-			component: Cart
+			component: () => import('./pages/cart')
 		},
 		{
 			path: '/order',
 			name: 'order',
-			component: Order,
+			component: () => import('./pages/order'),
 			children:[
 				{
 					path: 'list',
 					name: 'order-list',
-					component: OrderList
+					component: () => import('./pages/orderList')
 				},
 				{
 					path: 'confirm',
 					name: 'order-confirm',
-					component: OrderConfirm
+					component: () => import('./pages/orderConfirm')
 				},
 				{
 					path: 'pay',
 					name: 'order-pay',
-					component: OrderPay
+					component: () => import('./pages/orderPay')
 				},
 				{
 					path: 'alipay',
 					name: 'alipay',
-					component: AliPay
+					component: () => import('./pages/aliPay')
 				}
 			]
 		}
