@@ -4,26 +4,26 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 export default new Router({
-	routes:[
+	routes: [
 		{
-			path:'/',
-			name:'home',
+			path: '/',
+			name: 'home',
 			component: () => import('./pages/home'),
-			redirect:'/index',
-			children:[
+			redirect: '/index',
+			children: [
 				{
-					path:'/index',
-					name:'index',
+					path: '/index',
+					name: 'index',
 					component: () => import('./pages/index')
 				},
 				{
-					path:'/product/:id',
-					name:'product',
+					path: '/product/:id',
+					name: 'product',
 					component: () => import('./pages/product')
 				},
 				{
-					path:'/detail/:id',
-					name:'detail',
+					path: '/detail/:id',
+					name: 'detail',
 					component: () => import('./pages/detail')
 				},
 			]
@@ -42,7 +42,7 @@ export default new Router({
 			path: '/order',
 			name: 'order',
 			component: () => import('./pages/order'),
-			children:[
+			children: [
 				{
 					path: 'list',
 					name: 'order-list',

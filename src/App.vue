@@ -7,31 +7,27 @@
 <script>
 export default {
     name: 'app',
-    components: {
-
+    components: {},
+    data() {
+        return {}
     },
-    data(){
-        return {
-
-        }
-    },
-    mounted(){
-        if (this.$cookie.get('userId')){
+    mounted() {
+        if (this.$cookie.get('userId')) {
             this.getUser();
             this.getCartCount();
         }
     },
-    methods:{
+    methods: {
         // 获取用户信息
-        getUser(){
-            this.axios.get('/user').then((res={})=>{
-                this.$store.dispatch('saveUserName',res.username);
+        getUser() {
+            this.axios.get('/user').then((res = {}) => {
+                this.$store.dispatch('saveUserName', res.username);
             })
         },
         // 获取商品数量
-        getCartCount(){
-            this.axios.get('/carts/products/sum').then((res=0)=>{
-                this.$store.dispatch('saveCartCount',res)
+        getCartCount() {
+            this.axios.get('/carts/products/sum').then((res = 0) => {
+                this.$store.dispatch('saveCartCount', res)
             })
         }
     }
@@ -39,8 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-    @import "assets/scss/config";
-    @import "assets/scss/base";
-    @import "assets/scss/button";
-    @import "assets/scss/reset";
+@import "assets/scss/config";
+@import "assets/scss/base";
+@import "assets/scss/button";
+@import "assets/scss/reset";
 </style>

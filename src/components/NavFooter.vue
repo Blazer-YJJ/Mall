@@ -33,34 +33,48 @@ export default {
 @import "../assets/scss/config";
 @import "../assets/scss/base";
 @import "../assets/scss/reset";
-    .footer{
-        height: 234px;
-        border-top: 4px solid $colorA;
-        background-color: $colorB;
-        font-size: 16px;
-        color: $colorD;
-        text-align: center;
-        .foot-logo{
-            margin-top: 46px;
-            margin-bottom: 31px;
-            img{
-                width: 53px;
-                height: 36px;
-                margin-bottom: 13px;
-            }
-        }
-        .foot-link{
+
+.footer {
+    height: 234px;
+    border-top: 4px solid $colorA;
+    background-color: $colorB;
+    font-size: 16px;
+    color: $colorD;
+    text-align: center;
+
+    .foot-logo {
+        margin-top: 46px;
+        margin-bottom: 31px;
+
+        img {
+            width: 53px;
+            height: 36px;
             margin-bottom: 13px;
-            a{
-                font-size: 16px;
-                color: $colorD;
-                display: inline-block;
-            }
-            span{margin: 0 10px;}
-        }
-        .copyright{
-            span{margin: 0 5px;}
-            a{color: $colorA;}
         }
     }
+
+    .foot-link {
+        margin-bottom: 13px;
+
+        a {
+            font-size: 16px;
+            color: $colorD;
+            display: inline-block;
+        }
+
+        span {
+            margin: 0 10px;
+        }
+    }
+
+    .copyright {
+        span {
+            margin: 0 5px;
+        }
+
+        a {
+            color: $colorA;
+        }
+    }
+}
 </style>

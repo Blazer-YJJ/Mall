@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-Mock.mock('/api/user/login',{
+Mock.mock('/api/user/login', {
 	"status": 0,
 	"data": {
 		"id|10001-11000": 12,

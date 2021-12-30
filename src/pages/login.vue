@@ -50,138 +50,153 @@
     </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
-    export default {
-        name: 'login',
-        data(){
-            return {
-                username:'',
-                password:'',
-                userId:''
-            }
+import {mapActions} from 'vuex';
+
+export default {
+    name: 'login',
+    data() {
+        return {
+            username: '',
+            password: '',
+            userId: ''
+        }
+    },
+    methods: {
+        login() {
+            let {username, password} = this;
+            this.axios.post('/user/login', {
+                username,
+                password
+            }).then((res) => {
+                this.$cookie.set('userId', res.id, {expires: 'Session'});
+                this.saveUserName(res.username);
+                this.$router.push({
+                    name: 'index',
+                    params: 'login'
+                });
+            })
         },
-        methods:{
-            login(){
-                let { username,password } = this;
-                this.axios.post('/user/login',{
-                    username,
-                    password
-                }).then((res)=>{
-                    this.$cookie.set('userId',res.id,{expires:'Session'});
-                    // this.$store.dispatch('saveUserName',res.username);
-                    this.saveUserName(res.username);
-                    this.$router.push({
-                        // 明文传参
-                        // path: '/index',
-                        // query: {
-                        //     from: 'login'
-                        // }
-                        name: 'index',
-                        params: 'login'
-                    });
-                })
-            },
-            ...mapActions(['saveUserName']),
-            register(){
-                this.axios.post('/user/register',{
-                    username:'yangjijun',
-                    password:'admin',
-                    email:'yangjijunAbc@gmail.com'
-                }).then(()=>{
-                    alert('注册成功');
-                })
-            }
+        ...mapActions(['saveUserName']),
+
+        // 登陆账号
+        register() {
+            this.axios.post('/user/register', {
+                username: 'yangjijun',
+                password: 'admin',
+                email: 'yangjijunAbc@gmail.com'
+            }).then(() => {
+                alert('注册成功');
+            })
         }
     }
+}
 </script>
 <style lang="scss">
-.login{
-    &>.container{
-        height:113px;
-        img{
-            width:auto;
-            height:100%;
+.login {
+    & > .container {
+        height: 113px;
+
+        img {
+            width: auto;
+            height: 100%;
         }
     }
-    .wrapper{
-        background:url('/imgs/login-bg.jpg') no-repeat center;
-        .container{
-            height:576px;
-            .login-form{
+
+    .wrapper {
+        background: url('/imgs/login-bg.jpg') no-repeat center;
+
+        .container {
+            height: 576px;
+
+            .login-form {
                 box-sizing: border-box;
                 padding-left: 31px;
                 padding-right: 31px;
-                width:410px;
-                height:510px;
-                background-color:#ffffff;
-                position:absolute;
-                bottom:29px;
-                right:0;
-                h3{
-                    line-height:23px;
-                    font-size:24px;
-                    text-align:center;
-                    margin:40px auto 49px;
-                    .checked{
-                        color:#FF6600;
+                width: 410px;
+                height: 510px;
+                background-color: #ffffff;
+                position: absolute;
+                bottom: 29px;
+                right: 0;
+
+                h3 {
+                    line-height: 23px;
+                    font-size: 24px;
+                    text-align: center;
+                    margin: 40px auto 49px;
+
+                    .checked {
+                        color: #FF6600;
                     }
-                    .sep-line{
-                        margin:0 32px;
+
+                    .sep-line {
+                        margin: 0 32px;
                     }
                 }
-                .input{
-                    display:inline-block;
-                    width:348px;
-                    height:50px;
-                    border:1px solid #E5E5E5;
-                    margin-bottom:20px;
-                    input{
+
+                .input {
+                    display: inline-block;
+                    width: 348px;
+                    height: 50px;
+                    border: 1px solid #E5E5E5;
+                    margin-bottom: 20px;
+
+                    input {
                         width: 100%;
                         height: 100%;
                         border: none;
                         padding: 18px;
                     }
                 }
-                .btn{
-                    width:100%;
-                    line-height:50px;
-                    margin-top:10px;
-                    font-size:16px;
+
+                .btn {
+                    width: 100%;
+                    line-height: 50px;
+                    margin-top: 10px;
+                    font-size: 16px;
                 }
-                .tips{
-                    margin-top:14px;
-                    display:flex;
-                    justify-content:space-between;
-                    font-size:14px;
-                    cursor:pointer;
-                    .sms{
-                        color:#FF6600;
+
+                .tips {
+                    margin-top: 14px;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 14px;
+                    cursor: pointer;
+
+                    .sms {
+                        color: #FF6600;
                     }
-                    .reg{
-                        color:#999999;
-                        span{
-                            margin:0 7px;
+
+                    .reg {
+                        color: #999999;
+
+                        span {
+                            margin: 0 7px;
                         }
                     }
                 }
             }
         }
     }
-    .footer{
-        color:#999999;
-        font-size:16px;
-        text-align:center;
-        .footer-link{
-            a{
-                color:#999999;
-                display:inline-block;
+
+    .footer {
+        color: #999999;
+        font-size: 16px;
+        text-align: center;
+
+        .footer-link {
+            a {
+                color: #999999;
+                display: inline-block;
             }
-            span{
-                margin:0 10px;
+
+            span {
+                margin: 0 10px;
             }
         }
-        .copyright{
-            margin-top:13px;
+
+        .copyright {
+            margin-top: 13px;
         }
     }
 }

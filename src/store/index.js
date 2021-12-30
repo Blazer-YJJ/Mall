@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import mutations from './mutaions';
 import actions from './action';
+
 Vue.use(Vuex);
 
 const state = {

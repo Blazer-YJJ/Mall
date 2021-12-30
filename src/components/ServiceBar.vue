@@ -20,37 +20,45 @@ export default {
 <style lang="scss">
 @import "../assets/scss/config";
 @import "../assets/scss/mixin";
-    .service{
-        padding:33px 0;
-        color: $colorC;
-        font-size: 16px;
-        ul{
-            width: 100%;
-            li{
+
+.service {
+    padding: 33px 0;
+    color: $colorC;
+    font-size: 16px;
+
+    ul {
+        width: 100%;
+
+        li {
+            display: inline-block;
+            width: 24.9%;
+            text-align: center;
+            border-right: 1px solid $colorH;
+
+            span {
                 display: inline-block;
-                width: 24.9%;
-                text-align: center;
-                border-right: 1px solid $colorH;
-                span{
-                    display: inline-block;
-                    width: 20px;
-                    height: 20px;
-                    vertical-align: middle;
-                    margin-right: 8px;
-                }
-                .icon-setting{
-                    @include bgImg(20px,20px,'./../../public/imgs/icon-setting.png');
-                }
-                .icon-7day{
-                    @include bgImg(20px,20px,'./../../public/imgs/icon-7day.png');
-                }
-                .icon-15day{
-                    @include bgImg(20px,20px,'./../../public/imgs/icon-15day.png');
-                }
-                .icon-post{
-                    @include bgImg(20px,20px,'./../../public/imgs/icon-post.png');
-                }
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+
+            .icon-setting {
+                @include bgImg(20px, 20px, './../../public/imgs/icon-setting.png');
+            }
+
+            .icon-7day {
+                @include bgImg(20px, 20px, './../../public/imgs/icon-7day.png');
+            }
+
+            .icon-15day {
+                @include bgImg(20px, 20px, './../../public/imgs/icon-15day.png');
+            }
+
+            .icon-post {
+                @include bgImg(20px, 20px, './../../public/imgs/icon-post.png');
             }
         }
     }
+}
 </style>
