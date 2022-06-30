@@ -7,9 +7,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">手机</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-1.png'">
                                         {{ sub ? sub.name : '小米mix4' }}
                                     </a>
@@ -20,9 +20,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">电视</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-2.png'">
                                         {{ sub ? sub.name : '小米11' }}
                                     </a>
@@ -33,9 +33,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">笔记本&nbsp;平板</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-3.jpg'">
                                         {{ sub ? sub.name : 'Redmi k40' }}
                                     </a>
@@ -46,9 +46,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">家电</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-4.jpg'">
                                         {{ sub ? sub.name : '小米10' }}
                                     </a>
@@ -59,9 +59,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">出行&nbsp;穿戴</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-1.png'">
                                         {{ sub ? sub.name : '小米mix4' }}
                                     </a>
@@ -72,9 +72,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">智能&nbsp;路由器</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-2.png'">
                                         {{ sub ? sub.name : '小米11' }}
                                     </a>
@@ -85,9 +85,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">电源&nbsp;配件</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-3.jpg'">
                                         {{ sub ? sub.name : 'Redmi k40' }}
                                     </a>
@@ -98,9 +98,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">健康&nbsp;儿童</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-4.jpg'">
                                         {{ sub ? sub.name : '小米10' }}
                                     </a>
@@ -111,9 +111,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">耳机&nbsp;音箱</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-2.png'">
                                         {{ sub ? sub.name : '小米11' }}
                                     </a>
@@ -124,9 +124,9 @@
                     <li class="menu-item">
                         <a href="javascript:;">生活&nbsp;箱包</a>
                         <div class="children">
-                            <ul v-for="(item,i) in menuList" v-bind:key="i">
-                                <li v-for="(sub,j) in item" v-bind:key="j">
-                                    <a v-bind:href="sub ? '/#/porduct/' + sub.id:''">
+                            <ul v-for="(item,i) in menuList" :key="i">
+                                <li v-for="(sub,j) in item" :key="j">
+                                    <a :href="sub ? '/#/porduct/' + sub.id:''">
                                         <img v-lazy="sub ? sub.img:'/imgs/item-box-3.jpg'">
                                         {{ sub ? sub.name : 'Redmi k40' }}
                                     </a>
@@ -138,9 +138,9 @@
             </div>
             <!-- 大图轮播 -->
             <div class="swiper-box">
-                <swiper v-bind:options="swiperOption">
-                    <swiper-slide v-for="(item,index) in slideList" v-bind:key="index">
-                        <a v-bind:href="'/#/product/' + item.id">
+                <swiper :options="swiperOption">
+                    <swiper-slide v-for="(item,index) in slideList" :key="index">
+                        <a :href="'/#/product/' + item.id">
                             <img v-lazy="item.img">
                         </a>
                     </swiper-slide>
@@ -154,7 +154,7 @@
         </div>
         <!-- 广告位 -->
         <div class="ads-box">
-            <a v-bind:href="'/#/product/' + item.id" v-for="(item,index) in adsList" v-bind:key="index">
+            <a :href="'/#/product/' + item.id" v-for="(item,index) in adsList" :key="index">
                 <img v-lazy="item.img" alt="">
             </a>
         </div>
@@ -171,9 +171,9 @@
                         <a href="/#/product/35"><img v-lazy="'/imgs/mix-alpha.jpg'" alt=""></a>
                     </div>
                     <div class="list-box">
-                        <div class="list" v-for="(arr,i) in phoneList" v-bind:key="i">
-                            <div class="item" v-for="(item,j) in arr" v-bind:key="j">
-                                <span v-bind:class="{'new-pro':j%2==0}">新品</span>
+                        <div class="list" v-for="(arr,i) in phoneList" :key="i">
+                            <div class="item" v-for="(item,j) in arr" :key="j">
+                                <span :class="{'new-pro':j%2==0}">新品</span>
                                 <div class="item-img">
                                     <img v-lazy="item.mainImage" alt="">
                                 </div>
@@ -194,9 +194,9 @@
             sureText="查看购物车"
             btnType="1"
             modalType="middle"
-            v-bind:showModal="showModal"
-            v-on:submit="goToCart"
-            v-on:cancel="showModal=false"
+            :showModal="showModal"
+            @:submit="goToCart"
+            @:cancel="showModal=false"
         >
             <template v-slot:body>
                 <p>商品添加成功！</p>

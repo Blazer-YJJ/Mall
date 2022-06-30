@@ -20,7 +20,7 @@
                             <p>
                                 订单详情
                                 <em class="icon-down"
-                                    v-bind:class="{'up':showDetail}"
+                                    :class="{'up':showDetail}"
                                     @click="showDetail=!showDetail">
 
                                 </em>
@@ -56,22 +56,24 @@
                     <h3>选择以下支付方式付款</h3>
                     <div class="pay-way">
                         <p>支付平台</p>
-                        <div class="pay pay-ali" v-bind:class="{'checked':payType==1}" v-on:click="paySubmit(1)"></div>
-                        <div class="pay pay-wechat" v-bind:class="{'checked':payType==2}"
-                             v-on:click="paySubmit(2)"></div>
+                        <div class="pay pay-ali" :class="{'checked':payType==1}" @click="paySubmit(1)"></div>
+                        <div class="pay pay-wechat" 
+                             :class="{'checked':payType==2}"
+                             @click="paySubmit(2)">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <scan-pay-code v-if="showPay" v-on:close="closePayModal" v-bind:img="payImg"></scan-pay-code>
+        <scan-pay-code v-if="showPay" @close="closePayModal" :img="payImg"></scan-pay-code>
         <modal
             title="支付确认"
             btn-type="3"
-            v-bind:show-modal="showPayModal"
+            :show-modal="showPayModal"
             sure-text="查看订单"
             cancel-text="未支付"
-            v-on:cancel="showPayModal=false"
-            v-on:submit="goOrderList"
+            @cancel="showPayModal=false"
+            @submit="goOrderList"
         >
             <template v-slot:body>
                 <p>请您确认是否完成支付</p>

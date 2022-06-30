@@ -1,6 +1,6 @@
 <template>
     <div class="detail">
-        <product-param v-bind:title="product.name"></product-param>
+        <product-param :title="product.name"></product-param>
         <div class="wrapper">
             <div class="container clearfix">
                 <div class="swiper">
@@ -29,13 +29,13 @@
                     </div>
                     <div class="item-version clearfix">
                         <h2>选择版本</h2>
-                        <div class="phone fl" v-bind:class="{'checked':version==1}" @click="version=1">8GB+256GB 全网通
+                        <div class="phone fl" :class="{'checked':version==1}" @click="version=1">8GB+256GB 全网通
                         </div>
-                        <div class="phone fl" v-bind:class="{'checked':version==2}" @click="version=2">8GB+512GB 全网通
+                        <div class="phone fl" :class="{'checked':version==2}" @click="version=2">8GB+512GB 全网通
                         </div>
-                        <div class="phone fl" v-bind:class="{'checked':version==3}" @click="version=3">12GB+256GB 全网通
+                        <div class="phone fl" :class="{'checked':version==3}" @click="version=3">12GB+256GB 全网通
                         </div>
-                        <div class="phone fr" v-bind:class="{'checked':version==4}" @click="version=4">12GB+512GB 全网通
+                        <div class="phone fr" :class="{'checked':version==4}" @click="version=4">12GB+512GB 全网通
                         </div>
                     </div>
                     <div class="item-color clearfix">

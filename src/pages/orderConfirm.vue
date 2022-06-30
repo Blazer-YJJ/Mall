@@ -55,19 +55,19 @@
                                     }}
                                 </div>
                                 <div class="action">
-                                    <a href="javascript:;" class="fl" v-on:click="delAddress(item)">
+                                    <a href="javascript:;" class="fl" @click="delAddress(item)">
                                         <svg class="icon icon-del">
                                             <use xlink:href="#icon-del"></use>
                                         </svg>
                                     </a>
-                                    <a href="javascript:;" class="fr" v-on:click="editAddressModal(item)">
+                                    <a href="javascript:;" class="fr" @click="editAddressModal(item)">
                                         <svg class="icon icon-edit">
                                             <use xlink:href="#icon-edit"></use>
                                         </svg>
                                     </a>
                                 </div>
                             </div>
-                            <div class="addr-add" v-on:click="openAddressModal">
+                            <div class="addr-add" @click="openAddressModal">
                                 <div class="icon-add"></div>
                                 <div>添加新地址</div>
                             </div>
@@ -76,7 +76,7 @@
                     <div class="item-good">
                         <h2>商品</h2>
                         <ul>
-                            <li v-for="(item,index) in cartList" v-bind:key="index">
+                            <li v-for="(item,index) in cartList" :key="index">
                                 <div class="good-name">
                                     <img v-lazy="item.productMainImage">
                                     <span>{{ item.productName + ' ' + item.productSubtitle }}</span>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="btn-group">
                         <a href="/#/cart" class="btn btn-default btn-large">返回购物车</a>
-                        <a href="javascript:;" class="btn btn-large" v-on:click="orderSubmit">去结算</a>
+                        <a href="javascript:;" class="btn btn-large" @click="orderSubmit">去结算</a>
                     </div>
                 </div>
             </div>

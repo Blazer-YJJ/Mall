@@ -1,11 +1,11 @@
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import router from "./router";                           // 图片懒加载
+import router from "./router";
 import VueLazyload from "vue-lazyload";
 import VueCookie from "vue-cookie";
 import store from "./store";
-import {Message} from "element-ui";
+import { Message } from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css';
 import App from "./App.vue";
 
@@ -23,25 +23,25 @@ axios.interceptors.response.use(function (response) {
 	// 获取返回值
 	let res = response.data;
 	let path = location.hash;               // 获取路径
-	
+
 	if (res.status == 0) {
 		return res.data;
 	} else if (res.status == 10) {
 		if (path != '#/index') {
 			window.location.href = '/#/login';
 		}
-		
+
 		return Promise.reject(res);
 	} else {
 		Message.warning(res.msg);
-		
+
 		return Promise.reject(res);         // 抛出异常
 	}
 }, (error) => {
 	let res = error.response;
-	
+
 	Message.error(res.data.message);
-	
+
 	return Promise.reject(error);
 });
 

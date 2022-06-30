@@ -18,10 +18,10 @@
                 </div>
                 <div class="topbar-user">
                     <a href="javascript:;" v-if="username">欢迎您：{{ username }}</a>
-                    <a href="javascript:;" v-if="!username" v-on:click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
-                    <a href="javascript:;" v-if="username" v-on:click="logout">退出</a>
+                    <a href="javascript:;" v-if="!username" @click="login">登录&nbsp;&nbsp;/&nbsp;&nbsp;注册</a>
+                    <a href="javascript:;" v-if="username" @click="logout">退出</a>
                     <a href="/#/order/list" v-if="username">我的订单</a>
-                    <a href="javascript:;" class="my-cart" v-on:click="goToCart" v-if="username">
+                    <a href="javascript:;" class="my-cart" @click="goToCart" v-if="username">
                         <span class="icon-cart"></span>购物车({{ cartCount }})
                     </a>
                 </div>
@@ -38,9 +38,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -54,9 +54,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -70,9 +70,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -86,9 +86,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -102,9 +102,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -118,9 +118,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -134,9 +134,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>
@@ -150,9 +150,9 @@
                         <div class="children" style="display: block">
                             <ul>
                                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                                    <a v-bind:href="'/#/product/' + item.id" target="_blank">
+                                    <a :href="'/#/product/' + item.id" target="_blank">
                                         <div class="pro-img">
-                                            <img v-lazy="item.mainImage" v-bind:alt="item.subtitle"/>
+                                            <img v-lazy="item.mainImage" :alt="item.subtitle"/>
                                         </div>
                                         <div class="pro-name">{{ item.name }}</div>
                                         <div class="pro-price">{{ item.price | currency }}</div>

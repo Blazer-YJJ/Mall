@@ -12,8 +12,8 @@
                         <ul class="cart-item-head">
                             <li class="col-1">
                                 <span class="checkbox"
-                                      v-bind:class="{'checked':allChecked}"
-                                      v-on:click="toggleAll">
+                                      :class="{'checked':allChecked}"
+                                      @click="toggleAll">
                                 </span>
                                 全选
                             </li>
@@ -24,11 +24,11 @@
                             <li class="col-1">操作</li>
                         </ul>
                         <ul class="cart-item-list">
-                            <li class="cart-item" v-for="(item,index) in list" v-bind:key="index">
+                            <li class="cart-item" v-for="(item,index) in list" :key="index">
                                 <div class="item-check">
                                     <span class="checkbox"
-                                          v-bind:class="{'checked':item.productSelected}"
-                                          v-on:click="updateCart(item)">
+                                          :class="{'checked':item.productSelected}"
+                                          @click="updateCart(item)">
                                     </span>
                                 </div>
                                 <div class="item-name">
@@ -38,13 +38,13 @@
                                 <div class="item-price">{{ item.productPrice }}</div>
                                 <div class="item-num">
                                     <div class="num-box">
-                                        <a href="javascript:;" v-on:click="updateCart(item,'-')">-</a>
+                                        <a href="javascript:;" @click="updateCart(item,'-')">-</a>
                                         <span>{{ item.quantity }}</span>
-                                        <a href="javascript:;" v-on:click="updateCart(item,'+')">+</a>
+                                        <a href="javascript:;" @click="updateCart(item,'+')">+</a>
                                     </div>
                                 </div>
                                 <div class="item-total">{{ item.productTotalPrice }}</div>
-                                <div class="item-del" v-on:click="delProduct(item)"></div>
+                                <div class="item-del" @click="delProduct(item)"></div>
                             </li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="total fr">
                         合计：<span>{{ cartTotalPrice }}</span>元
-                        <a href="javascript:;" class="btn" v-on:click="order">去结算</a>
+                        <a href="javascript:;" class="btn" @click="order">去结算</a>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="order-box">
                     <loading v-if="loading"></loading>
-                    <div class="order" v-for="(order,index) in list" v-bind:key="index">
+                    <div class="order" v-for="(order,index) in list" :key="index">
                         <div class="order-title">
                             <div class="item-info fl">
                                 {{ order.createTime }}
@@ -28,7 +28,7 @@
                         </div>
                         <div class="order-content">
                             <div class="good-box fl">
-                                <div class="good-list" v-for="(item,i) in order.orderItemVoList" v-bind:key="i">
+                                <div class="good-list" v-for="(item,i) in order.orderItemVoList" :key="i">
                                     <div class="good-img">
                                         <img v-lazy="item.productImage">
                                     </div>
@@ -42,7 +42,7 @@
                                 <a href="javascript:;">{{ order.statusDesc }}</a>
                             </div>
                             <div class="good-state fr" v-else>
-                                <a href="javascript:;" v-on:click="goPay(order.orderNo)">{{ order.statusDesc }}</a>
+                                <a href="javascript:;" @click="goPay(order.orderNo)">{{ order.statusDesc }}</a>
                             </div>
                         </div>
                     </div>

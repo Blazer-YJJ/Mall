@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-bar" v-bind:class="{'is_fixed':isFixed}">
+    <div class="nav-bar" :class="{'is_fixed': isFixed}">
         <div class="container">
             <div class="pro-title">
                 {{ title }}

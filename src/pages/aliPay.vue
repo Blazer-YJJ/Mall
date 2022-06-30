@@ -29,8 +29,8 @@ export default {
             this.axios.post('/pay', {
                 orderId: this.orderId,
                 orderName: '杨继钧的商城',            //扫码支付时订单名称
-                amount: 0.01,                       //单位元
-                payType: 1                          //1支付宝，2微信
+                amount: 0.01,                        //单位元
+                payType: 1                           //1支付宝，2微信
             }).then((res) => {
                 this.content = res.content;
                 setTimeout(() => {

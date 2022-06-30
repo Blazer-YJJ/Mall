@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <product-param v-bind:title="product.name">
+        <product-param :title="product.name">
             <template v-slot:buy>
                 <button class="btn" @click="buy">立即购买</button>
             </template>
@@ -15,13 +15,13 @@
                     <div class="swiper-pagination" slot="pagination"></div>
                 </swiper>
             </div>
-            <div class="video-bg" v-on:click="showSlide='slideDown'">
+            <div class="video-bg" @click="showSlide='slideDown'">
                 <img src="./../../public/imgs/product/mix4video.png">
             </div>
             <div class="video-box" v-show="showSlide">
                 <div class="overlay"></div>
-                <div class="video" v-bind:class="showSlide">
-                    <span class="icon-close" v-on:click="closeVideo"></span>
+                <div class="video" :class="showSlide">
+                    <span class="icon-close" @click="closeVideo"></span>
                     <video src="imgs/product/Xiaomi%20MIX%204.mp4" muted autoplay controls="controls"></video>
                 </div>
             </div>

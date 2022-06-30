@@ -8,7 +8,7 @@
             <div class="modal-dialog">
                 <div class="modal-header">
                     <span>{{ title }}</span>
-                    <a href="javascript:;" class="icon-close" v-on:click="$emit('cancel')"></a>
+                    <a href="javascript:;" class="icon-close" @click="$emit('cancel')"></a>
                 </div>
                 <div class="modal-body">
                     <slot name="body"></slot>
@@ -17,27 +17,27 @@
                     <a href="javascript:;"
                        class="btn"
                        v-if="btnType==1"
-                       v-on:click="$emit('submit')"
+                       @click="$emit('submit')"
                     >
                         {{ sureText }}
                     </a>
                     <a href="javascript:;"
                        class="btn"
                        v-if="btnType==2"
-                       v-on:click="$emit('cancel')"
+                       @click="$emit('cancel')"
                     >
                         {{ cancelText }}
                     </a>
                     <div class="btn-group" v-if="btnType==3">
                         <a href="javascript:;"
                            class="btn"
-                           v-on:click="$emit('submit')"
+                           @click="$emit('submit')"
                         >
                             {{ sureText }}
                         </a>
                         <a href="javascript:;"
                            class="btn btn-default"
-                           v-on:click="$emit('cancel')"
+                           @click="$emit('cancel')"
                         >
                             {{ cancelText }}
                         </a>
