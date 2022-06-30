@@ -1,9 +1,9 @@
 //Vuex-mutaions
 export default {
-	saveUserName(state, username) {
-		state.username = username;
-	},
-	saveCartCount(state, count) {
-		state.cartCount = count;
-	}
+  saveUserName(state, username) {
+	state.username = username;
+  },
+  saveCartCount(state, count) {
+	state.cartCount = count;
+  }
 }

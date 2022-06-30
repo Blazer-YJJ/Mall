@@ -1,28 +1,30 @@
 <template>
-    <div class="order-header">
-        <div class="container clearfix">
-            <div class="header-logo">
-                <a href="/#/index/"></a>
-            </div>
-            <div class="title">
-                <h2>{{ title }}<slot name="tip"></slot></h2>
-            </div>
-            <div class="username"><a href="javascript:;">{{ username }}</a></div>
-        </div>
+  <div class="order-header">
+    <div class="container clearfix">
+      <div class="header-logo">
+        <a href="/#/index/"></a>
+      </div>
+      <div class="title">
+        <h2>{{ title }}
+          <slot name="tip"></slot>
+        </h2>
+      </div>
+      <div class="username"><a href="javascript:;">{{ username }}</a></div>
     </div>
+  </div>
 </template>
 
 <script>
 import {mapState} from 'vuex';
 
 export default {
-    name: "OrderHeader",
-    props: {
-        title: String
-    },
-    computed: {
-        ...mapState(['username'])
-    }
+  name: "OrderHeader",
+  props: {
+    title: String
+  },
+  computed: {
+    ...mapState(['username'])
+  }
 }
 </script>
 
@@ -30,40 +32,40 @@ export default {
 @import "./../assets/scss/config";
 
 .order-header {
-    padding: 30px 0;
+  padding: 30px 0;
 
-    .title, .username {
-        display: inline-block;
-        height: 55px;
-        line-height: 55px;
+  .title, .username {
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+  }
+
+  .title {
+
+    h2 {
+      font-size: $fontF;
+      color: $colorB;
     }
 
-    .title {
-
-        h2 {
-            font-size: $fontF;
-            color: $colorB;
-        }
-
-        span {
-            font-size: $fontJ;
-            color: $colorD;
-            margin-left: 17px;
-            //font-weight: bold;
-        }
+    span {
+      font-size: $fontJ;
+      color: $colorD;
+      margin-left: 17px;
+      //font-weight: bold;
     }
+  }
 
-    .username {
-        float: right;
+  .username {
+    float: right;
 
-        a {
-            font-size: $fontI;
-            color: $colorC;
+    a {
+      font-size: $fontI;
+      color: $colorC;
 
-            &:hover {
-                color: $colorA;
-            }
-        }
+      &:hover {
+        color: $colorA;
+      }
     }
+  }
 }
 </style>
