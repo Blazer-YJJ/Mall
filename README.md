@@ -1,8 +1,7 @@
-# 仿小米商城
-## 这是一个用vue2全家桶开发的仿小米商城的PC端网站
+# PC端在线商城项目
+## 技术栈：
 ## 线上体验： http://mall.blazeremo.co
-## 这是一个商场项目
-## 账号：yangjijun  admin
+## username：yangjijun  password：admin
 
 ## Project setup
 ```
